@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位布局</title>
+    <style>
+        #app{/*id选择器 */
+            width: 200px;
+            height: 200px;
+            background-color: #487224;
+            position: relative;/*相对定位，可以作为别人的榜样*/
+            left: 100px;
+        }
+        /* .app{类名选择器
+            width: 200px;
+            height: 200px;
+            background-color: #4b70cf;
+        } */
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #090808;
+            /* position: absolute; 绝对定位 
+            right: 0;
+            bottom: 0; */
+
+           /* position: relative; 相对定位
+            left: 150px;
+            top: 150px;  */
+
+            position: fixed;
+            right: 0;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="app">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

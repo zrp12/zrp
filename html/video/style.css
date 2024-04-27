@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #9eea9f;
+}
+.wrapper{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    display: flex;
+}
+.speed{
+    width: 50px;
+    height: 430;
+    background-color: #fff;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-left: 100px;
+    /* display: inline-block; */
+}
+.speed-bar{
+    width: 100%;
+    height: 16%;
+    background: linear-gradient(to bottom,#e1585a,#b3db13);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;/* 鼠标放上去的状态是小手 */
+}

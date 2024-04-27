@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;/* 继承父级的100% */
+}
+body{
+    height: 100%;
+    font: 100%/1.25 微软雅黑;
+    color: #fff;
+    perspective: 1000px;
+    background: linear-gradient(to bottom,#444,#999);/* 从上往下渐变 */
+}
+
+.book{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    /* left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); */
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -150px;
+    cursor: pointer; /* 鼠标是一只手 */
+    user-select: none; /* 禁止复制 */
+    transform: rotateX(60deg);/* 重点看 */
+}
+.page{
+    width: 300px;
+    height: 300px;
+    padding: 1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: 2em;
+}
+.front{
+    background-color: #d93e2b;
+}
+.back{
+    background-color: #fff;
+}
+
+.front-cover{
+    transform-origin: 0 50%; /* 旋转基点 */
+    transform: rotateY(0deg);
+}
+
+.p3d{
+    transform-style: preserve-3d;
+
+}
+.front-cover .back{
+    background-image: url(./8.jpg);
+    background-size: cover;
+    transform: translateZ(3px);
+}
+.flip{
+    transform: rotateY(180deg);
+}
+.shadow,
+.pic{
+    width: 196px;
+    height: 132px;
+    position: absolute;
+    left: 60px;
+    top: 60px;
+    transform-origin: 0 100%;
+}
+
+.pic{
+    background: url(./9.jpg);
+    background-size: cover;
+}
+.shadow{
+    background-color: rgba(0, 0, 0, 0.5);
+}

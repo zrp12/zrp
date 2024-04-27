@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: relative;
+            left: 500px;
+            top: 100px;
+            transform: translate(500px,100px);
+            /* position: relative;
+            left: 500px; */
+            /* margin-left: 500px; */
+            /* transform: translate(500px,50px);平移 */
+            /* transform: rotateY(180deg); 旋转  */
+            /* transform: skewY(-45deg); 倾斜  */
+            /* transform: scale(2); 缩放  */
+            animation: scal 3s linear infinite;
+            /* 匀速 循环 */
+        }
+
+        @keyframes scal{
+            0%{
+                transform: scale(1);
+            }
+            25%{
+                transform: scale(0.5);
+            }
+            50%{
+                transform: scale(1);
+            }
+            75%{
+                transform: scale(2);
+            }
+            100%{
+                transform: scale(1);
+            }
+
+             
+        }
+        /* 动画 */
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+</body>
+</html>

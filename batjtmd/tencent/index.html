@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BATJTMD 腾讯日</title>
+</head>
+<body>
+<script>
+    /*
+     *@func 代理送花
+     *@desc 通过实现receiverFlower，互换对象
+     *@author zrp
+     *@data  2024/4/15/21:24 
+    */
+    //console.log('面向大厂编程')
+    //了解某某 js 对象 表现力
+    //对象有属性key和方法构成
+    const hm={
+        name:'怀民',
+        school:'江财',
+        hometown:'南康',
+        isSingle:false
+
+    }
+    //对象 object 复杂（引用）数据类型
+        const xa={
+        name:'小艾同学',//字符串类型 简单数据类型
+        age:20,//数值类型
+        hometown:'南昌',
+        girlFriend:null,//null空
+        city:undefined,//未定义
+        hobbies:['看小说','看电视','唱歌'],//对象（js中没有数组，数组也是对象）
+        isSingle:true,//布尔值
+        //形参
+        sendFlower:function(receiver){
+            receiver && receiver.receiverFlower(this);
+        }
+    }
+    const am={
+        name:'阿美',
+        xq:20,
+        hometown:'抚州',
+        receiverFlower:function(sender){
+            console.log(this.name+'收到'+sender.name+'鲜花');
+            if(this.xq<80){
+                console.log('我想还是算了吧');//每句后面加分号
+            }else{
+                console.log('我们在一起吧！');
+            }
+        }
+    }
+    //对象字面量 字面上就了解这个对象
+    const ah={
+        name:'阿红',
+        hometown:'赣州',
+        //实现了和阿美一样的接口，就可以互换
+        receiverFlower:function(sender){
+            console.log(this.name+'收到'+sender.name+'鲜花');
+            //if(sender.name==='艾安盛'){
+            //     console.log('啊，让我们在一起吧...');                
+            // }
+            setTimeout(function(){
+                am.xq=88;
+                am.receiverFlower(sender);
+            },2000)
+            
+        }
+
+    }
+   // aas.sendFlower(xm);
+    xa.sendFlower(ah);
+</script>
+</body>
+</html>

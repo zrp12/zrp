@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>年度听歌报告</title>
+  <link rel="icon" href="https://s1.music.126.net/style/favicon.ico">
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <audio id="j-bgm" src="./assert/bgm.mp3"></audio>
+  <div class="music-btn off"></div>
+
+  <div class="view special">
+    <div class="sun"></div>
+    <!-- 荡秋千 -->
+    <div class="art">
+      <div class="swing j-anim03 z-anim">
+        <!-- 腿 -->
+        <div class="leg2">
+          <div class="jiojio"></div>
+        </div>
+        <!-- 腿 -->
+        <div class="leg1">
+          <div class="jiojio"></div>
+        </div>
+        <!-- 脖子 -->
+        <div class="neck"></div>
+        <!-- 头 -->
+        <div class="head">
+          <div class="part"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 特殊内容 -->
+    <div class="paras">
+      <p class="para f-animLineUp" style="transition-delay: 0.2s;">
+        <em class="s-fcRed">11月11日</em>
+      </p>
+      <p class="para f-animLineUp" style="transition-delay: 0.3s;">
+        大概是很特别的一天
+      </p>
+      <p class="para f-animLineUp" style="transition-delay: 0.4s;">
+        这一天里
+      </p>
+      <p class="para f-animLineUp" style="transition-delay: 0.5s;">
+        你把郑源的
+        <em class="s-fcRed">《被伤过的心还可以爱谁》</em>
+      </p>
+      <p class="para f-animLineUp" style="transition-delay: 0.6s;">
+        反复听了
+        <em class="s-fcRed">10次</em>
+      </p>
+    </div>
+  </div>
+  <script>
+    const viewSpecial = document.querySelector('.view .paras');
+    const musicBtn = document.querySelector('.music-btn');
+    let defaultMusicPlay = true;
+    const bgMusic = document.querySelector('#j-bgm');
+
+    musicBtn.addEventListener('click', () => {
+      if (defaultMusicPlay) {
+        bgMusic.play();
+      } else {
+        bgMusic.pause();
+      }
+      defaultMusicPlay = !defaultMusicPlay;
+      musicBtn.classList.toggle('off');
+    });      
+  
+    setTimeout(() => {
+      viewSpecial.classList.add('z-enter')
+    }, 1000)
+  </script>
+</body>
+
+</html>
