@@ -8,6 +8,8 @@
 //     let a = 2;
 // }
 
-const a = 1;//声明一个常量,不允许更改
-a = 2;
-console.log(a);
+
+
+// const a = 1;//声明一个常量,不允许更改
+// a = 2;
+// console.log(a);

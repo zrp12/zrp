@@ -2,17 +2,20 @@
 // console.log(a);
 // var a = 2;
 
-
-// if(true){
-//     let a = 1;
-// }
+// var a;
 // console.log(a);
+// a = 1;
 
-
-{
-    let i;
-    for(i = 0;i < 10;i++){
-        console.log(i);
-    }
+if(true){
+    let a = 1;
 }
+console.log(a);
+
+
+// {
+//     let i;
+//     for(i = 0;i < 10;i++){
+//         console.log(i);
+//     }
+// }
 
