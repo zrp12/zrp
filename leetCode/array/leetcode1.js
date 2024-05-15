@@ -15,6 +15,8 @@ var twoSum = function(nums, target) {// 形参
     //          return [i,a];
     //     }
     // }
+
+    
     var diff={};
     for(var i = 0;i < nums.length; i++){
         if(diff[nums[i]]!== undefined){ //查找对象中是否存在值，是不需要循环的
