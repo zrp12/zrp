@@ -12,4 +12,6 @@
   npm i openai   sdk,大模型调用
 
 - key，password等应该放到.env文件中
-  
+  .gitignore 用处
+
+- node 里面.env 取到 main.js ?
