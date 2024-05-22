@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .page{
+            height: 200px;
+            display: flex;
+            /* width: 200px; */
+        }
+        .left{
+            order: 1;
+        }
+        .right{
+            order: 2;
+        }
+        .left,.right{
+            width: 200px;
+            background-color: #bf2424;
+            /* flex: 1 0; */
+            /* flex: 0; */
+            /* flex-shrink: 0; */
+            /* flex-grow: 1; */
+        }
+        .content{
+            flex-grow: 1;
+            background-color: #4ca664;
+            order: 2;
+            /* flex: 1 0; */
+            /* flex: 0; */
+            /* flex-shrink: 0; */
+            /* flex-grow: 1; */
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="content">主体内容</div>
+        <div class="left">广告位</div>     
+        <div class="right">广告位</div>
+    </div>
+</body>
+</html>
