@@ -35,6 +35,7 @@ async function main(){
       ${prompt}
       评论：实话说，iphon越来越没有新意了，你买我不推荐，散了
       情感：
+
     `
     // client openai 实例
     // chat 是以聊天的方式
@@ -53,3 +54,101 @@ async function main(){
 }
 
 main();
+
+
+// const OpenAI = require('openai');
+// require('dotenv').config()
+
+// const client = new OpenAI({
+//     apiKey: process.env.OPENAI_API_KEY,
+//     baseURL: 'https://api.chatanywhere.tech/v1'
+// });
+
+// process.stdin.on('data', (buffer) => {
+//     const comment = buffer.toString().trim();
+//     async function main() {
+        
+//         let prompt = `
+//         判断一下用户的评论情感上是正面的还是负面的
+//         评论：买的银色版真的好看，一天就到了，晚上就开始拿起来完系统很丝滑流畅，
+//         做工扎实，手感细腻，很精致，华为一如既往的好品质
+//         情感：正面
+//         评论：随意降价，不予保价，服务态度差
+//         情感：负面
+//     `
+
+//         let myPrompt = `
+//     ${prompt}
+//     评论：${comment}
+//     情感：
+//     `
+        
+//         const chatCompletion = await client.chat.completions.create({
+//             messages: [
+//                 {
+//                     role: 'user',
+//                     content: myPrompt
+//                 }],
+//             model: 'gpt-3.5-turbo',
+//             n: 1
+//         })
+//         console.log(chatCompletion.choices[0]);
+//     }
+
+//     main()
+// })
+
+
+
+
+// require('dotenv').config();
+// const OpenAI = require('openai');
+// const readline = require('readline');
+
+// const client = new OpenAI({
+//     apikey: process.env.OPENAI_API_KEY,
+//     baseURL: 'https://api.chatanywhere.tech/v1'
+// });
+
+// async function getUserInput(prompt) {
+//     const rl = readline.createInterface({
+//         input: process.stdin,
+//         output: process.stdout
+//     });
+
+//     return new Promise((resolve) => {
+//         rl.question(prompt, (answer) => {
+//             rl.close();
+//             resolve(answer);
+//         });
+//     });
+// }
+
+// async function main(){
+//     const prompt = `
+//       判断一下用户的评论情感上是正面的还是负面的
+//       评论：买的银色版真的好看，一天就到了，晚上就开始拿起来完系统很丝滑流畅，
+//       做工扎实，手感细腻，很精致，华为一如既往的好品质
+//       情感：正面
+//       评论：随意降价，不予保价，服务态度差
+//       情感：负面
+//     `;
+
+//     let myPrompt = `
+//       ${prompt}
+      
+//     `;
+
+//     const userInput = await getUserInput("请输入您要评论的内容：\n");
+//     myPrompt += `评论：${userInput}\n情感：`;
+
+//     const chatCompletion = await client.chat.completions.create({
+//         messages: [{role: 'user', content: myPrompt}],
+//         model: 'gpt-3.5-turbo',
+//         n: 2
+//     });
+//     console.log(chatCompletion.choices[0].message.content);
+// }
+
+// main();
+

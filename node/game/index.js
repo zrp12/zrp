@@ -11,16 +11,17 @@
 
 const game = (action) => {
     const arr = ['rock','scissors','paper'];
-    console.log(action);
+    // console.log(action);
     // 输入的校验
     if(arr.indexOf(action) == -1){
         throw new Error('用户输入错误');
     }
 
     let computerAction;
+    // console.log(computerAction);
     let random = Math.floor(Math.random()*3);//向下取整
     computerAction = arr[random];
-    // console.log('电脑出来'+computerAction);
+    console.log('电脑出了'+computerAction);
     if(computerAction == action){
         console.log('平局');
         return 0;//平局
@@ -37,7 +38,9 @@ const game = (action) => {
 }
 }
 
-
+let winCount = 0;
+// let winComputer = 0;
+// let count = 0;
 
 process.stdin.on('data', (buffer) => {
     // 存储和通信的底层是二进制

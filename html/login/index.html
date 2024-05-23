@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #d81e06;
+        }
+        .login{
+            overflow: hidden;
+        }
+
+        .hd {
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo {
+            /* margin: 0 auto; */
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .login-container {
+            /* width: 1200px;
+            height: 1200px; */
+            margin-top: 150px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .username,
+        .password {
+            width: 220px;
+            height: 50px;
+            /* color: white; */
+            font-size: 15px;
+            text-align: left;
+            border-color: rgb(173, 173, 162);
+        }
+
+        .btn {
+            width: 280px;
+            height: 40px;
+            border-radius: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-color: #fff;
+        }
+
+        .input-space {
+            margin: 10px;
+            /* background-color: transparent; */
+        }
+
+        /* ::placeholder {
+            color: white;
+        } */
+
+        .success {
+            text-align: center;
+            background: rgb(117, 112, 112);
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            width: 150px;
+            height: 150px;
+        }
+        p {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <div class="hd">
+            网易云音乐
+        </div>
+        <div class="success">
+            <img src="./img/success.png" alt="">
+            <p>登录成功</p>
+        </div>
+        <div class="logo">
+            <img src="./img/music.png" alt="">
+        </div>
+        <div class="login-container">
+            账号<input type="text" placeholder="输入手机号" class="input-space username" id="username"><br>
+            密码<input type="text" placeholder="输入密码" class="input-space password" id="password"><br>
+            <button class="btn" id="btn">登录</button>
+        </div>
+    </div>
+    <script>
+        let login = document.getElementById('btn');
+        let username = document.getElementById('username');
+        let password = document.getElementById('password');
+        let toast = document.querySelector('.success');
+        // console.log(username);
+
+        login.addEventListener('click', () => {
+            fetch(`http://192.168.1.83:3000/login?username=${username.value}&password=${password.value}`)
+
+                .then((res) => {
+                    console.log(res); //响应体
+                    return res.json(); //把响应体转换成json格式
+                })
+                .then((data) => {
+                    console.log(data);
+                    toast.style.display = "block";
+                    setTimeout(() => {
+                        toast.style.display = "none";
+                    }, 2000);
+                })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-const arr = [1, 2, [3, 4, [5]]];// 使用递归
+const arr = [1, 2, [3, 4, [5, 6]]];// 使用递归
 
 function flatten(arr) {
    let res = []; // [1,2]  [3,4]  [5]

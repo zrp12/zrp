@@ -12,6 +12,10 @@
 
 // console.log(+[]);
 
-if ([]){ // TOBooean([]) ==> true
+// if ([]){ // TOBooean([]) ==> true
 
-}
+// }
+
+// console.log(+'123');
+
+console.log(+[]);

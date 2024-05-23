@@ -15,32 +15,27 @@
         let btn = document.getElementById('btn');
         let ul = document.getElementById('list');
         btn.addEventListener('click',  () => {
-            $.ajax({
-                url: 'https://mock.mengxuegu.com/mock/65a91543c4cd67421b34c898/movie/movieList#!method=get',
-                method: 'GET',
-                
-            })
+            // 朝一个接口发请求，获取到数据展示到页面上
 
-        //     // 朝一个接口发请求，获取到数据展示到页面上
+            let xhr = new XMLHttpRequest(); //创建一个ajax实例
+            xhr.open('GET', 'https://mock.mengxuegu.com/mock/65a91543c4cd67421b34c898/movie/movieList',true); //配置发送的参数
+            xhr.send(); //发送请求
+            xhr.onreadystatechange = () => {  //监听请求的过程
+                // console.log(xhr.readyState);
+                if(xhr.readyState == 4 && xhr.status == 200){  //拿到了后端返回的数据
+                    // console.log(xhr.responseText);
+                    console.log(JSON.parse(xhr.responseText));
+                    // 展示在页面上
+                    const movieList = JSON.parse(xhr.responseText).movieList;
+                    // console.log(movieList);
+                    for(let i = 0; i < movieList.length; i++){
+                        const li = document.createElement('li'); 
+                        li.innerText = movieList[i].nm + '--' + movieList[i].star;
+                        ul.appendChild(li); //添加子标签                
+                }
+            }
 
-        //     let xhr = new XMLHttpRequest(); //创建一个ajax实例
-        //     xhr.open('GET', 'https://mock.mengxuegu.com/mock/65a91543c4cd67421b34c898/movie/movieList#!method=get',true); //配置发送的参数
-        //     xhr.send(); //发送请求
-        //     xhr.onreadystatechange = () => {  //监听请求的过程
-        //         // console.log(xhr.readyState);
-        //         if(xhr.readyState == 4 && xhr.status == 200){  //拿到了后端返回的数据
-        //             // console.log(JSON.parse(xhr.responseText));
-        //             // 展示在页面上
-        //             const movieList = JSON.parse(xhr.responseText).movieList;
-        //             // console.log(movieList);
-        //             for(let i = 0; i < movieList.length; i++){
-        //                 const li = document.createElement('li'); 
-        //                 li.innerText = movieList[i].nm + '--' + movieList[i].star;
-        //                 ul.appendChild(li); //添加子标签                
-        //         }
-        //     }
-
-        //   }
+          }
  })
     </script>
 </body>

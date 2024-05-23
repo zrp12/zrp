@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: red;
+        }
+
+        .hd {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            margin-top: 150px;
+        }
+
+        .logo img {
+            margin: 0 auto;
+            width: 80px;
+            height: 80px;
+            display: block;
+        }
+
+        .bingo {
+            position: absolute;
+            left: 50%;
+            margin-left: -75px;
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: #a38383;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            text-align: center;
+        }
+
+        .bingo img {
+            height: 70%;
+        }
+
+        .bingo p {
+            text-align: center;
+        }
+
+        .logo-container {
+            color: white;
+            margin-top: 180px;
+
+        }
+
+        .logo-container input {
+            width: 250px;
+            height: 30px;
+            background: red;
+            border: 1px solid white;
+        }
+
+        .username,
+        .password {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo-container button {
+            width: 305px;
+            margin: 20px auto;
+            height: 30px;
+            border-radius: 12px;
+            border: 0;
+        }
+
+        .logo-container button {
+            text-align: center;
+            display: block;
+        }
+
+        ::placeholder {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <div class="hd">网易云音乐</div>
+        <div class="logo"><img src="./music.png" alt=""></div>
+        <div class="bingo">
+            <img src="./bingo.png" alt="">
+            <p>登录成功</p>
+        </div>
+        <div class="logo-container">
+
+            <div class="username">
+                账号：<input type="text" placeholder="请输入手机号" id="user">
+            </div>
+            <div class="password">
+                密码：<input type="text" placeholder="输入密码" id="pass">
+            </div>
+            <button id="btn">登录</button>
+        </div>
+    </div>
+
+    <script>
+        let btn = document.getElementById('btn');
+        let bingo = document.querySelector('.bingo');
+        let username = document.getElementById('user');
+        let password = document.getElementById('pass');
+        ;
+
+
+        btn.addEventListener('click', () => {
+            fetch(`http://192.168.1.83:3000/login?username=${username.value}&password=${password.value}`)
+                .then((res) => {
+                    console.log(res);
+                    bingo.style.display = "block";
+                    return res.json();
+                }).then((data) => {
+                    console.log(data);
+                })
+            setTimeout(() => {
+                bingo.style.display = "none";
+            }, 2000);
+        })
+
+    </script>
+</body>
+
+</html>

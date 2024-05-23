@@ -20,8 +20,12 @@
 
 
 // GO:{
-//     a:undefined  --> 1,
-//     fn:function(){}
+//     a:undefined,
+//     fn:function (a){
+//         var a = 2;
+//         function a(){}
+//         console.log(a);
+//     }
 // }
 
 var a = 1;
@@ -30,8 +34,8 @@ function fn(a){
     function a(){}
     console.log(a);
 }
-//AO:{
-    // a: undefined undefined  3  function(){} 2,
-    // 
-//}
+// AO:{
+//     a: undefined undefined  3  function(){} 2
+    
+// }
 fn(3);

@@ -10,8 +10,18 @@
 // console.log(mul(5));// 120
 
 
-function mul(n){
-    if(n === 1 || n === 0) return 1;
-    return n * mul(n-1);
+// function mul(n){
+//     if(n === 1 || n === 0) return 1;
+//     return n * mul(n-1);
+// }
+// console.log(mul(0));
+
+
+function mul(num){
+    if(num === 1 || num === 0){
+        return 1;
+    }else{
+        return num * mul(num - 1);
+    }
 }
-console.log(mul(0));
+console.log(mul(1));

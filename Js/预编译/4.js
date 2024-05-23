@@ -1,7 +1,7 @@
 // GO:{
 //     fn: function(){}
 // }
-//全局执行
+// 全局执行
 function fn(a){
     console.log(a);//function
     var a = 123;
