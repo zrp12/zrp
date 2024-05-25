@@ -19,24 +19,54 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>西奈</td>
-                        <td>赣州</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>落羽</td>
-                        <td>南昌</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>玉溪</td>
-                        <td>北京</td>
-                    </tr> -->
+                   
                 </tbody>
             </table>
         </div>
+        <div class="row col-md-6 col-md-offset-3">
+            <form name="aiForm" method="get" action="http://www.baidu.com">
+                <div class="form-group">
+                  <label for="questionInput">向AI助理提问：</label>
+                  <input type="text" name="question" class="form-control" id="questionInput" placeholder="请输入您想问的users相关问题">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+              </form>
+        </div>
+        <div class="row" id="message"></div>
     </div>
+
+    <script>
+        const oMessage = document.querySelector('#message');
+        const oBody = document.querySelector('#user_table tbody');
+        const oForm = document.forms['aiForm'];
+        let usersData = [];
+        fetch("http://localhost:3000/users")
+        .then(data => data.json())
+        .then(users => {
+            usersData = users;
+            // console.log(usersData);
+            // console.log(users);
+            oBody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.name}</td>
+                    <td>${user.hometown}</td>
+                </tr>
+            `).join('')
+        })
+        oForm.addEventListener('submit', function(event){
+            // 组织表单的默认行为
+            event.preventDefault();// 表单不能直接提交
+            // name属性去查找  性能更好
+            const question = this["question"].value.trim();
+            // console.log(question);
+            fetch(`http://localhost:8828/users?question=${question}&users=${JSON.stringify(usersData)}`)
+            .then(data => data.json())
+            .then(res => {
+                // console.log(res);
+                document.querySelector('#message').innerHTML = res.message;
+            })
+        })
+    </script>
 </body>
 </html>
