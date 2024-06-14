@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <h2>Hello world</h2> -->
+    </div>
+
+    <template id="temp">
+        <h2>{{message}} - {{message}}</h2>
+        <h2>{{count * 10}}</h2>
+        <h2>{{message.split(' ').reverse().join(' ')}}</h2>
+         <h2>{{getReverse()}}</h2>
+         <h2 @click="toggle">{{flag ? '哈哈': '呵呵'}}</h2>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#temp',
+            data: function() {
+                return {
+                    message: 'Hello Vue',
+                    count: 1,
+                    flag: true
+                }
+            },
+            methods: {
+                getReverse() {
+                    return this.message.split(' ').reverse().join(' ')
+                },
+                toggle() {
+                    this.flag = !this.flag;
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+</html>

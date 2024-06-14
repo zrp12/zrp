@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>首页</h1>
+    <ul>
+        <!-- <li>html</li>
+        <li>js</li>
+        <li>css</li>
+        <li>vue</li> -->
+    </ul>
+    <a href="./detail.html">详情页</a>
+
+    <script>
+        let data = ['HTML', 'CSS', 'JS', 'VUE']
+
+        for(let i = 0; i < data.length; i++){
+            let li = document.createElement('li');
+            li.innerHTML = data[i];
+            document.querySelector('ul').appendChild(li)
+        }
+    </script>
+</body>
+</html>

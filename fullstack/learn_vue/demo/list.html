@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            list-style: none;
+        }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            width: 50%;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        li .avatar{
+            width: 100%;
+        }
+        li .avatar img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- <li class="item">
+                <div class="avatar">
+                    <img src="https://img.keaitupian.cn/uploads/2020/11/24/1584887863113948.jpg" alt="">
+                </div>
+                <div class="desc">
+                    <div class="name">周杰伦</div>
+                    <div class="nums">热播：200首</div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="avatar">
+                    <img src="https://img.keaitupian.cn/uploads/2020/11/24/1584887863113948.jpg" alt="">
+                </div>
+                <div class="desc">
+                    <div class="name">周杰伦</div>
+                    <div class="nums">热播：200首</div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="avatar">
+                    <img src="https://img.keaitupian.cn/uploads/2020/11/24/1584887863113948.jpg" alt="">
+                </div>
+                <div class="desc">
+                    <div class="name">周杰伦</div>
+                    <div class="nums">热播：200首</div>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+
+    <script>
+        fetch('https://mock.mengxuegu.com/mock/66585c4db462b81cb3916d3e/songer/songer')
+        .then(res => res.json())
+        .then((data) => {
+            console.log(data);
+            // const List = data.data;
+            //     for (let i = 0; i < List.length; i++) {
+            //         const li = document.createElement('li');
+            //         const img = new Image()
+            //         img.src = List[i].avatar
+            //         li.appendChild(img)
+            //         const div = document.createElement('div')
+            //         div.classList.add = 'avatar'
+            //         div.innerText = List[i].songsCount + '--' +  + '--' + List[i].name;
+
+            //         document.querySelector('ul').appendChild(li)
+            //     }
+
+            const List = data.data;
+            let html = ''
+            List.forEach((item) => {
+                const li = `<li class="item">
+                <div class="avatar">
+                    <img src="${item.avatar}" alt="">
+                </div>
+                <div class="desc">
+                    <div class="name">${item.name}</div>
+                    <div class="nums">${item.songsCount}</div>
+                </div>
+            </li>
+                `
+                html += li;
+            })
+            document.querySelector('ul').innerHTML = html;
+        }
+        )     
+    </script>
+</body>
+</html>
