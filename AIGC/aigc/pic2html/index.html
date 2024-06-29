@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章榜</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .article-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f9f9f9;
+      padding: 16px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .article-list__header {
+      font-size: 24px;
+      color: #333;
+      margin: 0;
+    }
+
+    .article-list__items {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .article-list__item {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #666;
+    }
+
+    .article-list__item-number {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      background-color: #ff7b74;
+      color: #fff;
+      border-radius: 50%;
+      line-height: 24px;
+      font-size: 14px;
+    }
+
+    .article-list__more-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #ff7b74;
+    }
+  </style>
+</head>
+<body>
+  <div class="article-list">
+    <h1 class="article-list__header">文章榜</h1>
+    <ul class="article-list__items">
+      <li class="article-list__item">
+        <span class="article-list__item-number">1</span> 后端同事下班早，前端排序我...
+      </li>
+      <li class="article-list__item">
+        <span class="article-list__item-number">2</span> 「差生文具多系列之」最好看...
+      </li>
+      <li class="article-list__item">
+        <span class="article-list__item-number">3</span> 一种适合H5屏幕适配方案方案
+      </li>
+      <li class="article-list__item">
+        <span class="article-list__item-number">4</span> 软考架构师上岸，我用了这些...
+      </li>
+      <li class="article-list__item">
+        <span class="article-list__item-number">5</span> 前端 Vue3 数据可视化图表技...
+      </li>
+    </ul>
+    <button class="article-list__more-button">查看更多&gt;</button>
+  </div>
+</body>
+</html>
