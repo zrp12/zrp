@@ -7,34 +7,53 @@
             <div class="content">
                 <div class="title">
                     <span class="brand"></span>
-                    <span class="name">恬恬家的蛋炒饭</span>
+                    <span class="name">{{ seller.name }}</span>
                 </div>
-                <div class="description">蜂鸟专送/38分钟送达</div>
-                <div class="support">
-                    <!-- pic -->
-                     <span class="text">在线支付满20减19</span>
+                <div class="description">{{ seller.description }}{{ seller.deliveryTime }}分钟送达</div>
+                <div class="support" v-if="seller.supports">
+                    <SupportIcon :type="seller.supports[0].type" :size="1"/>
+                     <span class="text">{{ seller.supports[0].description }}</span>
                 </div>
             </div>
 
-            <div class="support-count">
-                <span class="count">5个</span>
+            <div class="support-count" v-if="seller.supports">
+                <span class="count">{{ seller.supports.length }}个</span>
                 <i class="iconfont icon-youjiantou"></i>
             </div>
         </div>
 
         <div class="bulletin-wrapper">
+            <span class="bulletin-title"></span>
+            <span class="bulletin-txt">{{ seller.bulletin }}</span>
+            <i class="iconfont icon-youjiantou" ></i>
 
         </div>
+        <div class="bg"></div>
+
+        
     </div>
 </template>
 
 <script setup>
+import SupportIcon from '@/components/support-icon/index.vue'
+import { ref ,computed} from 'vue';
+const props = defineProps({
+    seller: {
+        type: Object,
+        default: () => { }
+    }
+})
+
+const bg = computed(() => {
+    return `url(${props.seller.avatar})`
+})
 
 </script>
 
 <style lang="less" scoped>
 @import '@/assets/variable.less';
 @import '@/assets/mixin.less';
+
 
 .header{
     position: relative;
@@ -106,6 +125,43 @@
                 margin-left: 5px;
             }
         }
+    }
+    .bulletin-wrapper {
+        display: flex;
+        align-items: center;
+        height: 28px;
+        padding: 0 8px;
+        background-color: @color-background-sss;
+        .bulletin-title {
+            flex: 0 0 22px;
+            height: 12px;
+            .bg-image('bulletin');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .bulletin-txt {
+            margin-left: 4px;
+            flex: 1;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: @fontsize-small-s;
+        }
+        .icon-youjiantou {
+            flex:0 0 10px;
+            font-size: 10px;
+        }
+    }
+    .bg {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        background: v-bind(bg);
+        background-size: 100% 100%;
+        z-index: -1;
+        filter: blur(10px);
     }
 }
 </style>
