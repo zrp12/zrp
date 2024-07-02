@@ -18,7 +18,7 @@ export default defineConfig({
       '/api': {
         target: 'http://ustbhuangyi.com/sell/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/,'/api')
+        rewrite: (path) => path.replace(/^\/api/, '/api')
       }
     }
   }
