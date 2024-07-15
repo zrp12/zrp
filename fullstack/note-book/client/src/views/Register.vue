@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h1>登录</h1>
+    <h1>注册</h1>
     <div class="login-wrapper">
       <div class="avatar">
         <img src="https://q6.itc.cn/q_70/images03/20240601/80b789341c9b45cb8a76238650d288a5.png" alt="">
@@ -23,17 +23,24 @@
             placeholder="密码"
             :rules="[{ required: true, message: '请填写密码' }]"
           />
+          <van-field
+            v-model="nickname"
+            name="nickname"
+            label="昵称"
+            placeholder="昵称"
+            :rules="[{ required: true, message: '请填写昵称' }]"
+          />
         </van-cell-group>
         <div style="margin: 16px;">
           <van-button round block type="primary" native-type="submit">
-            登录
+            注册
           </van-button>
         </div>
       </van-form>
 
     </div>
 
-    <p class="register" @click="() => router.push('/register')">新用户？点击这里注册</p>
+    <p class="register" @click="() => router.push('/login')">已有账号？点击登录</p>
   </div>
 </template>
 
@@ -41,24 +48,23 @@
 import { ref } from 'vue';
 import axios from '@/api'
 import { useRouter } from 'vue-router';
+import { showSuccessToast } from 'vant';
 
 const username = ref('')
 const password = ref('')
+const nickname = ref('')
+
 const router = useRouter()
 
-// 登录
+// 注册
 const onSubmit = async(values) => {
   // console.log(values);
-  const res = await axios.post('/user/login', {   // http://localhost:3000/user/login
-    username: values.username,
-    password: values.password
-  })
-
-  localStorage.setItem('userInfo', JSON.stringify(res.data))
-  localStorage.setItem('token', res.token)
-  router.push('/noteClass')
-
+  const res = await axios.post('/user/register', values)
   // console.log(res);
+  showSuccessToast(res.msg)
+  setTimeout(() => {
+    router.push('/login')
+  }, 1500)
 }
 
 </script>

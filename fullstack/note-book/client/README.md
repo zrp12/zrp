@@ -1,29 +1,7 @@
-# client
+# 登录权限
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+2. 后端鉴权
+    1. 前端输入正确的账号密码给到后端
+    2. 后端校验账号密码合法，用该账号密码生成一个加密的令牌token 并返回给前端保存
+    3. 前端接下来所有的接口请求，全部需要带上这个token给后端
+    4. 后端校验token的合法性判断此用户是否登录
