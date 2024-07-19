@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="demo">
+
+    </ul> 
+
+    <script>
+        // 只发生1次回流
+        let ul = document.getElementById('demo');
+        //1 ul.style.display = 'none';
+
+        //2 let frg = document.createDocumentFragment(); // 虚拟文档碎片
+
+        let clone = ul.cloneNode(true);
+        for (let i = 0; i < 10000; i++) {
+            let li = document.createElement('li');
+            let text = document.createTextNode(i);
+            li.appendChild(text);
+            //1 ul.appendChild(li);
+            //2 frg.appendChild(li);
+            clone.appendChild(li);
+        }
+        //2 ul.appendChild(frg);
+        ul.parentNode.replaceChild(clone, ul);
+
+        //1 ul.style.display = 'block';
+    </script>
+</body>
+</html>
