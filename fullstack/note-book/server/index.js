@@ -4,6 +4,7 @@ const cors = require('@koa/cors')
 const { bodyParser } = require('@koa/bodyparser')
 
 const userRouter = require('./router/user.js');
+const noteRouter = require('./router/note.js');
 
 // const main = (ctx) => {
 //   if (ctx.url == '/user/login') {
@@ -16,6 +17,7 @@ app.use(bodyParser());  // 辅助koa解析post传递的参数
 
 
 app.use(userRouter.routes(), userRouter.allowedMethods()); 
+app.use(noteRouter.routes(), noteRouter.allowedMethods()); 
 
 
 app.listen(3000, () => {

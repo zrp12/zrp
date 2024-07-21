@@ -11,8 +11,16 @@
         }
         .page{
             height: 200px;
-            display: flex;
-            /* width: 200px; */
+            display: flex; 
+        }
+        .left,.right{
+            width: 200px;
+            background-color: #6d9b2f;
+        }
+        .content{
+            flex-grow: 1;
+            background-color: #d8a7a7;
+            order: 2;
         }
         .left{
             order: 1;
@@ -20,30 +28,13 @@
         .right{
             order: 2;
         }
-        .left,.right{
-            width: 200px;
-            background-color: #bf2424;
-            /* flex: 1 0; */
-            /* flex: 0; */
-            /* flex-shrink: 0; */
-            /* flex-grow: 1; */
-        }
-        .content{
-            flex-grow: 1;
-            background-color: #4ca664;
-            order: 2;
-            /* flex: 1 0; */
-            /* flex: 0; */
-            /* flex-shrink: 0; */
-            /* flex-grow: 1; */
-        }
     </style>
 </head>
 <body>
     <div class="page">
         <div class="content">主体内容</div>
-        <div class="left">广告位</div>     
-        <div class="right">广告位</div>
+        <div class="left">左侧广告位</div>     
+        <div class="right">右侧广告位</div>
     </div>
 </body>
 </html>

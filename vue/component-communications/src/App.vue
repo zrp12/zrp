@@ -5,13 +5,14 @@
     </div>
 
     <Child :msg="toChild"></Child>
+     <!-- <Child :msg="list"></Child> -->
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import Child from '@/components/child.vue'
 
-// const list = ref(['html', 'css', 'js'])
+// const list = ref(['玫瑰','牡丹','月季'])
 const value = ref('')
 const toChild = ref('')
 let add = () => {

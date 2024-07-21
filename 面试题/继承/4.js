@@ -7,8 +7,9 @@ let parent = {
     }
 }
 
-let child = Object.create(parent)
-// let child2 = Object.create(parent)
-// child.like.push(3)
+let child1 = Object.create(parent)
+let child2 = Object.create(parent)
+child1.like.push(3)
 
-console.log(child.like);
+console.log(child1);
+console.log(child2.like);

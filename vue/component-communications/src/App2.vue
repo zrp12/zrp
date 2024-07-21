@@ -1,6 +1,6 @@
 <template>
-    <!-- 订阅add1事件 -->
-    <Child @add1="handle"></Child>
+    <!-- 订阅create事件 -->
+    <Child @create="handle"></Child>
     <div>
         <div class="child">
         <ul>
@@ -13,8 +13,7 @@
 <script setup>
 import Child from '@/components/child2.vue'
 import {ref} from 'vue'
-const list = ref(['html','js','css'])
-
+const list = ref(['玫瑰','牡丹','月季'])
 const handle = (event) => {
     // console.log(event);
     list.value.push(event)

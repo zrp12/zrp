@@ -17,22 +17,20 @@ router.post('/login', async (ctx) => {
         nickname: result[0].nickname,
         username: result[0].username
       }
-
       // 生成token
-      let token = jwt.sign(
-        {
-          id: result[0].id,
-          username: result[0].username,
-          nickname: result[0].nickname  
-        }
-      )
-      console.log(token);
+      let token = jwt.sign({ 
+        id: result[0].id, 
+        username: result[0].username,
+        admin: true
+      })
+
+      // console.log(token);
 
       ctx.body = {
         code: '8000',
         data: data,
         msg: '登录成功',
-        token: '!123456'
+        token: token
       }
     } else {
       ctx.body = {
@@ -101,9 +99,13 @@ router.post('/register', async (ctx) => {
 })
 
 // 测试token
-router.post('home', (ctx) => {
-  
-
+router.post('/home', jwt.verify(), (ctx) => {
+  ctx.body = {
+    code: '8000',
+    data: '首页数据'
+  }
 })
+
+
 
 module.exports = router

@@ -9,18 +9,18 @@
 import {ref} from 'vue'
 const value = ref('')
 const props = defineProps({
-    list: {
+    msg: {
         type: Array,
         default: () => []
     }
 })
 
-const emits = defineEmits(['update:list'])
+const emits = defineEmits(['update:msg'])
 const add = () => {
     // props.list.push(value.value)// 不建议直接操作父组件给过来的数据
-    const arr = props.list
+    const arr = props.msg
     arr.push(value.value)
-    emits('update:list', arr)
+    emits('update:msg', arr)
     value.value = ''
 }
 </script>

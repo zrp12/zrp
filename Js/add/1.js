@@ -4,7 +4,7 @@ function add(a, b){
         return;
     }
     // 数据类型 参数数量的问题
-    if (typeof a != 'number' || typeof a != 'number'){
+    if (typeof a != 'number' || typeof b != 'number'){
         console.log('类型错误');
         return;
     }

@@ -12,6 +12,11 @@
         .page{
             height: 200px;
         }
+        .left,.right{
+            height: 200px;
+            width: 200px;
+            background-color: #7aa74d;
+        }
         .content{
             height: 200px;
             background-color: #d5adad;
@@ -21,21 +26,16 @@
             float: left;
         }
         .inner{
-            margin: 0 200px;     /* 上下0 左右两百 */
-            height: 100%;
-        }
-        .left,.right{
-            height: 200px;
-            width: 200px;
-            background-color: #7aa74d;
+            padding: 0 200px;  /*上下0 左右两百 */
+            height: 100%; 
+            background-color: #e21616;
         }
         .left{
             margin-left: -100%;
-            /* position: relative; */
         }
         .right{
-            margin-left: -200px;
-        }
+            margin-left: -200px; 
+        } 
     </style>
 </head>
 <body>
@@ -43,8 +43,9 @@
         <div class="content">
             <div class="inner">主体内容</div>
         </div>
-        <div class="left">广告位</div>
-        <div class="right">广告位</div>
+        <div class="left">左侧广告位</div>
+        <div class="right">右侧广告位</div>
     </div>
 </body>
 </html>
+

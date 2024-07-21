@@ -12,7 +12,7 @@
 
 <script setup>
 import Child from '@/components/child4.vue'
-import {onMounted, ref} from 'vue'
+import { ref } from 'vue'
 
 const childRef = ref(null)
 

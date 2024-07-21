@@ -11,7 +11,7 @@
         }
         .page{
             height: 200px;
-            padding: 0 200px;
+            margin: 0 200px; /* 添加padding属性，父容器左右两边往里收200px的边距 */
         }
         .left,.right{
             height: 200px;
@@ -28,23 +28,23 @@
         }
         .left{
             margin-left: -200px;
-            position: relative;
-            left: -100%;
+            position: relative;  /* 相对定位的参照物是该元素本身在正常文档流中的位置。 */
+            left: -100%;   /* 继承父容器宽度的100% */
         }
         .right{
-            /* margin-right: -200px; */
             margin-left: -200px;
             position: relative;
             right: -200px;
-
         }
     </style>
 </head>
 <body>
     <div class="page">
         <div class="content">主体内容</div>
-        <div class="left">广告位</div>
-        <div class="right">广告位</div>
+        <div class="left">左侧广告位</div>
+        <div class="right">右侧广告位</div>
     </div>  
 </body>
 </html>
+
+

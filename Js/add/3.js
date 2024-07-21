@@ -18,4 +18,5 @@ function add(x, y, z, m){
 }
 
 // add(1)(2)(3)(4);
-curry(add, 1, 2, 3);
+
+console.log(curry(add, 1, 2, 3));

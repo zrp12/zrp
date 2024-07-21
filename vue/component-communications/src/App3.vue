@@ -1,5 +1,5 @@
 <template>
-    <Child v-model:list="list"></Child>
+    <Child v-model:msg="list"></Child>
     <div>
         <div class="child">
         <ul>
@@ -12,7 +12,7 @@
 <script setup>
 import Child from '@/components/child3.vue'
 import {ref} from 'vue'
-const list = ref(['html','js','css'])
+const list = ref(['玫瑰','牡丹','月季'])
 
 </script>
 

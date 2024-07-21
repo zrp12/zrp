@@ -11,7 +11,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 
-const list = ref(['html', 'css', 'js'])
+const list = ref(['玫瑰','牡丹','月季'])
 
 const props = defineProps({
     msg: ''
@@ -24,8 +24,9 @@ watch(
 )
 // list.value.push(props.msg)
 
+
 // defineProps({
-//     list: {
+//     msg: {
 //         type: Array,
 //         default: () => []
 //     }

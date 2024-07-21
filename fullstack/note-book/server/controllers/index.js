@@ -49,10 +49,17 @@ const userRegister = (values) => {
   return allServices.query(_sql)
 }
 
+// 根据分类查找笔记
+const findNoteListByType = (type, id) => {
+  let _sql = `select * from note where note_type="${type}" and userId="${id}";`
+  return allServices.query(_sql)
+}
+
 
 module.exports = {
   userLogin,
   userFind,
-  userRegister
+  userRegister,
+  findNoteListByType
 }
 

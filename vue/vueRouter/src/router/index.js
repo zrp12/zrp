@@ -25,7 +25,8 @@ const routes = [
                 component: () => import('../pages/home/Suggest.vue')
             }
         ]
-    },
+    }
+    ,
     {
         path: '/bot',
         component: Bot
@@ -42,3 +43,5 @@ const router = createRouter ({
 })
 
 export default router
+
+

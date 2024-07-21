@@ -17,19 +17,19 @@
 
         btn.addEventListener('click',  () => {
            fetch("https://mock.mengxuegu.com/mock/65a91543c4cd67421b34c898/movie/movieList?username='昔年'&age=18")
-            // .then((res) => {
-            //     // console.log(res.json()); //响应体
-            //     return res.json(); //把响应体转换成json格式
-            // })
-            // .then((data) => {
-            //     // console.log(data);
-            //     const movieList = data.movieList;
-            //     for (let i = 0; i < movieList.length; i++) {
-            //         const li = document.createElement('li');
-            //         li.innerText = movieList[i].nm + '--' + movieList[i].star;
-            //         ul.appendChild(li);
-            //     }
-            // })
+            .then((res) => {
+                // console.log(res.json()); //响应体
+                return res.json(); //把响应体转换成json格式
+            })
+            .then((data) => {
+                // console.log(data);
+                const movieList = data.movieList;
+                for (let i = 0; i < movieList.length; i++) {
+                    const li = document.createElement('li');
+                    li.innerText = movieList[i].nm + '--' + movieList[i].star;
+                    ul.appendChild(li);
+                }
+            })
             
  })
     </script>

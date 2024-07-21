@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- 设置文档字符集为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，使页面在不同设备上自适应 -->
+    <title>图片延迟加载</title> <!-- 页面标题 -->
+    <style>
+        /* 设置全局样式 */
+        body {
+            background-color: gray; /* 背景颜色设为灰色 */
+        }
+        img {
+            display: block; /* 图片作为块级元素显示 */
+            margin-bottom: 50px; /* 图片下方留出50px的间距 */
+            width: 400px; /* 图片宽度固定为400px */
+            height: 400px; /* 图片高度固定为400px */
+        }
+    </style>
+</head>
+<body>
+    <!-- 图片元素列表，每个img标签通过data-src属性存放实际图片链接，src属性是一个占位符 -->
+    <!-- ...（图片标签保持不变）... -->
+    <!-- 示例图片元素 -->
+    <!-- <img src="https://misc.360buyimg.com/mtd/pc/common/img/blank.png" data-src="真实图片URL"> -->
+    <!-- 更多图片... -->
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641974410_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641293753_img_png">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642423719_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190808/v2_1565254363234_img_jpg">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642425030_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642425101_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642425061_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190904/v2_1567591358070_img_jpg">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567640518658_img_png">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641974410_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641974454_img_000">
+
+    <!-- 引入lodash库用于实现节流功能 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+    <script>
+        // 获取所有的img元素
+        const imgs = document.getElementsByTagName('img');
+        // 记录img元素的数量
+        const num = imgs.length;
+
+        // 使用lodash的throttle方法创建一个节流过的lazyload函数
+        const lazyLoadThrottled = _.throttle(lazyload, 200);
+
+        // 当文档加载完成后，开始监听滚动事件，并立即执行一次lazyload函数加载可视区内的图片
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('scroll', lazyLoadThrottled);
+            lazyload();
+        });
+
+        // 计数器，记录已加载的图片数量
+        let loadedCount = 0;
+
+        // 图片延迟加载的核心函数
+        function lazyload(){
+            // 获取可视窗口的高度
+            const screenHeight = document.documentElement.clientHeight;
+            // 获取当前滚动位置
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollTop);
+
+            // 遍历所有图片
+            for (let i = loadedCount; i < num; i++) {
+                // 判断图片是否在可视区域内
+                if (imgs[i].offsetTop < screenHeight + scrollTop){
+                    // 如果在可视区域，则将占位符替换为真实图片地址加载图片
+                    imgs[i].src = imgs[i].getAttribute('data-src');
+                    // 加载计数器加一
+                    loadedCount++;
+                    // 如果所有图片都已加载，则移除滚动事件监听，避免不必要的计算
+                    if(loadedCount === num){
+                        window.removeEventListener('scroll', lazyLoadThrottled);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

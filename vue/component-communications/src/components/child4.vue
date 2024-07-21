@@ -8,7 +8,7 @@
 <script setup>
 import {ref} from 'vue'
 const value = ref('')
-const list = ref(['html','js','css'])
+const list = ref(['玫瑰','牡丹','月季'])
 
 const add = () => {
     list.value.push(value.value)

@@ -56,6 +56,7 @@ const onSubmit = async(values) => {
 
   localStorage.setItem('userInfo', JSON.stringify(res.data))
   localStorage.setItem('token', res.token)
+
   router.push('/noteClass')
 
   // console.log(res);

@@ -8,7 +8,7 @@ let root = {
         }
     }
 }
-var preorderTraversal = function(root) {
+var inorderTraversal = function(root) {
     if (!root) return []
     const res = []
     const stack = []

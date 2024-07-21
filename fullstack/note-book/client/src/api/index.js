@@ -2,7 +2,7 @@ import router from '@/router';
 import axios from 'axios';
 import { showToast } from 'vant';
 
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://121.199.167.198:3000' //'http://localhost:3000'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 
@@ -38,3 +38,5 @@ axios.interceptors.response.use(res => {
 })
 
 export default axios
+
+

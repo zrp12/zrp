@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>懒加载</title>
+    <style>
+        body{
+            background-color: #000000;
+        }
+        img {
+            display: block;
+            margin-bottom: 50px;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- data-src为数据属性 手动的触发下载 权利拿到手上来 -->
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641974410_img_000" />
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641293753_img_png">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642423719_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190808/v2_1565254363234_img_jpg">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642425030_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642425101_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567642425061_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190904/v2_1567591358070_img_jpg">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567640518658_img_png">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641974410_img_000">
+    <img src = 'https://misc.360buyimg.com/mtd/pc/common/img/blank.png' data-src="https://img.36krcdn.com/20190905/v2_1567641974454_img_000">
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js" ></script>
+    <script>
+        const imgList = document.getElementsByTagName('img');
+        const num = imgList.length;
+        // console.log(imgList);
+        let n = 0;
+        // 注册在scroll事件中的触发函数
+        const throttleLazyload = _.throttle(lazyload, 200)
+        window.addEventListener('scroll', throttleLazyload)
+        // DOMContentLoaded html和css页面加载完成时触发，保证第一次页面的图片不用滚轮加载图片
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded');
+            lazyload()
+        })
+        // 在DOMContentLoaded之后
+        window.addEventListener('load', () => {
+            console.log('load');
+        })
+        function lazyload() {
+            // 获取可视区域一屏的高度
+            let screenHeight = document.documentElement.clientHeight;
+            // console.log(screenHeight);
+            // 获取滚动条滚动的距离 多浏览器适配
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollTop);
+            for (let i = n; i < num; i++) {
+                
+                if(imgList[i].offsetTop < screenHeight + scrollTop) {
+                    imgList[i].src = imgList[i].getAttribute('data-src');
+                    // 记录已经加载过的图片的下标
+                    n = i + 1;
+                    if(n === num) {
+                        // console.log('所有图片加载完成');
+                        window.removeEventListener('scroll', throttleLazyload)
+                    }
+                }
+        }
+    }
+    // 不要去重复造轮子
+    // function throttle(func, limit) {  
+    //     let inThrottle;  
+    //      return function() {  
+    //         const context = this;  
+    //      const args = arguments;  
+    //      if (!inThrottle) {  
+    //        func.apply(context, args);  
+    //           inThrottle = true;  
+    //           setTimeout(() => inThrottle = false, limit);  
+    //      }  
+    //       };  
+    // }  
+  
+    </script>
+</body>
+</html>

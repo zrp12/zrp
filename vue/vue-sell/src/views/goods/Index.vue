@@ -61,7 +61,8 @@ const state = reactive({
   currentIndex: 0,
   foodsScroll: null,
   listHeight: [], // 右侧菜系的高度
-  scrollY: 0 // 记录右侧容器滚动的距离
+  scrollY: 0, // 记录右侧容器滚动的距离
+  selectedFoods: [] // 想要购买的商品
 
 })
 
@@ -135,7 +136,19 @@ const _calculateHeight = () => {
 
 // 子组件点击购买+
 const updateFood = () => {
-  console.log(state.goods);
+  // console.log(state.goods);
+  // 需要购买的菜全部记录下来
+  for (let good of state.goods) {
+    if (good.foods) {
+      for (let food of good.foods) {
+        if (food.count) {
+          state.selectedFoods.push(food)
+          console.log(state.selectedFoods);
+        }
+      }
+    }
+  }
+
 }
 
 // onMounted(async () => { // 挂载完成之后,该组件被编译完成并且添加在了index.html中

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆瓣</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #anony-nav-banner{
+            clear: both;
+            overflow: hidden;
+            background-color: #EDF4EC;
+            margin-bottom: 30px;
+            /* margin-top: 60px; */
+        }
+        #douban-logo{
+            /* height: 20px;
+            width: 102px;
+            margin: 7px 13px;
+            background-size: contain; */
+            display: inline-block;
+            vertical-align: middle;
+            width: 160px;
+            height: 34px;
+            margin: 0 20px 0 0;
+            padding: 0;
+            font-size: 12px;
+            font-weight: normal;
+            background: url(https://img1.doubanio.com/f/sns/19886d443852bee48de2ed91f4a3bdfdaf8c809c/pics/sns/nav/logo_db.png) no-repeat 0 0;
+            overflow: hidden;
+        }
+        h1{
+            word-wrap: break-word;
+            display: block;
+            font-size: 25px;
+            font-weight: bold;
+            color: #494949;
+            margin: 0;
+            padding: 0 0 15px 0;
+            line-height: 1.1;
+        }
+        #douban-logo a{
+            height: 20px;
+            display: block;
+            line-height: 10em;
+        }
+        a:visited {
+            color: #669;
+            text-decoration: none;
+        }
+        a {
+            cursor: pointer;
+        }
+        #anony-nav {
+            width: 1080px;
+            margin: 0 auto 25px;
+        }
+        #anony-nav .anony-nav-links {
+            float: right;
+            margin-top: 6px;
+        }
+        ul {
+            list-style: none;
+        }
+        #anony-nav .anony-nav-links li {
+            display: inline-block;
+            margin: 0 14px 0 0;
+        }
+        #anony-nav .anony-nav-links li .lnk-book {
+            background-position: 0 0;
+        }
+        #anony-nav .anony-nav-links li .lnk-movie {
+            background-position: -60px 0;
+        }
+        #anony-nav .anony-nav-links li .lnk-music {
+            background-position: -120px 0;
+        }
+        #anony-nav .anony-nav-links li .lnk-events {
+            background-position: -299px 0;
+        }
+        #anony-nav .anony-nav-links li .lnk-group {
+            background-position: -180px 0;
+        }
+        a:link{
+            color: #37a;
+            text-decoration: none;
+        }
+        #anony-nav .anony-nav-links li a {
+            display: inline-block;
+            zoom: 1;
+            width: 40px;
+            height: 20px;
+            overflow: hidden;
+            margin: 0;
+            line-height: 20em;
+            outline: none;
+            vertical-align: middle;
+            background: transparent url(https://img1.doubanio.com/f/sns/8536084688879cb1137e8efdff30e59614ff2f86/pics/sns/anony_home/anony_nav_logo.png) no-repeat 100% 100%;
+            background-image: -webkit-image-set(url(https://img1.doubanio.com/f/sns/8536084688879cb1137e8efdff30e59614ff2f86/pics/sns/anony_home/anony_nav_logo.png) 1x,url(https://img1.doubanio.com/f/sns/8536084688879cb1137e8efdff30e59614ff2f86/pics/sns/anony_home/anony_nav_logo.png) 2x);
+        }
+        /* #anony-nav .anony-nav-links .site-name {
+            display: inline-block;
+            line-height: 24px;
+        } */
+        #anony-nav .anony-srh {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            width: 270px;
+            height: 30px;
+            border: 1px solid #c3c3c3;
+        }
+        form{
+            /* margin: 0;
+            padding: 0; */
+            border: 0px;
+        }
+        #anony-nav .anony-srh .inp {
+            display: block;
+            height: 30px;
+            overflow: hidden;
+        }
+        #anony-nav .anony-srh .inp input {
+            width: 240px;
+            border: none;
+            font-size: 13px;
+            height: 20px;
+            padding: 5px;
+        }
+        input{
+            margin-right: 3px;
+            vertical-align: middle;
+        }
+        #anony-nav .anony-srh .bn {
+            position: absolute;
+            right: 0;
+            top: 0;width: 30px;
+            height: 30px;
+            overflow: hidden;
+            cursor: pointer;
+            background: url(https://img1.doubanio.com/f/sns/f71f15922ebd7c0ff0ea0e7a25577529efd8981a/pics/sns/icons/bn_srh_1.png) 50% 50% no-repeat;
+        }
+        #anony-nav .anony-srh .bn input {
+            border: none;
+            background: transparent;
+            overflow: hidden;
+            width: 30px;
+            height: 30px;
+            font-size: 0;
+            color: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="anony-nav-banner">
+            <h1 id="douban-logo" style="height: 20px;width: 102px;margin: 7px 13px;background-size: contain;">
+                <a href="http://www.douban.com" style="height: 20px;">豆瓣</a>
+            </h1>
+        </div>
+        <div id="anony-nav">
+            <div class="anony-nav-links">
+                <ul>
+                    <li><a target="_blank" class="lnk-book" href="https://book.douban.com">豆瓣读书</a></li>
+                    <li><a target="_blank" class="lnk-movie" href="https://movie.douban.com">豆瓣电影</a></li>
+                    <li><a target="_blank" class="lnk-music" href="https://music.douban.com">豆瓣音乐</a></li>
+                    <li><a target="_blank" class="lnk-events" href="https://www.douban.com/location/">豆瓣同城</a></li>
+                    <li><a target="_blank" class="lnk-group" href="https://www.douban.com/group/">豆瓣小组</a></li>
+                    <li><a target="_blank" class="lnk-read" href="https://read.douban.com">豆瓣阅读</a></li>
+                    <li><a target="_blank" class="lnk-fm" href="https://fm.douban.com">豆瓣FM</a></li>
+                    <li><a target="_blank" class="lnk-shijian" href="https://time.douban.com/?dt time source =doban-web anonymous index top nav">豆瓣时间</a></li>
+                    <li><a target="_blank" class="lnk-market" href="https://market.douban.com?utm campaign=anonymous top nav&utm source=doban&utm medium=pc web">豆瓣豆品</a></li>
+                </ul>
+            </div>
+            <div class="site-name" title="豆瓣网" style="display: inline-block;line-height: 24px;height: 24px;margin-top: 4px;margin-right: 24px;
+            width: 73px;background-image: url(	https://img1.doubanio.com/f/sns/714b8751a533ef592bea5cd4603dbb9e713ded61/pics/sns/sitename.png);
+            background-size: contain;background-repeat: no-repeat;text-indent: -999em;">豆瓣网</div>
+            <div class="anony-srh">
+                <form action="https://www.doban.com/search" method="get">
+                    <span class="inp">
+                        <input type="text" maxlength="60" size="12" placeholder="书籍、电影、音乐、小组、小站、成员" name="q" autocomplete="off">
+                    </span>
+                    <span class="bn">
+                        <input type="submit" value="搜索">
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
