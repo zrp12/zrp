@@ -96,9 +96,4 @@ export const useHomeStore = defineStore('home', () => {
         navBarState,
         recentlyViewedState
     }
-    state: () => {
-        return {
-            name: 'home'
-        }
-    }
 })
