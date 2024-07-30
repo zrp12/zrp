@@ -20,7 +20,27 @@
     - 通义千问等code copilot 提升开发效率，干预学习并实战大前端，全栈
     等技能。未来技术鸿沟会越来越小，自己已经准备好利用AIGC的工具。
     - transforms.js langchain.js  AI框架已经拥抱前端了
+    - 端模型已经成熟，transformers.js 直接调用
 
 - transforms.js
   来自全球最大的AI 社区 Huggingface， 全球的LLM都在这里发布
   transforms.js 是一个NLP 机器学习库，语言翻译
+
+- html5
+  - Web Worker 让JS启动新线程
+  - 前端未来会越来越复杂 VR/AR AI 3D 高性能，时间
+    单线程的js 是解决不了的
+  - 消息机制来通信，将复杂任务给子线程去做
+    html5 web worker
+  - new Worker(new URL('./worker.js', import.meta.url, {
+    type: 'module'
+  }))
+  - worker 线程中不可以用DOM 对象，只适合做计算
+  - 通过通信机制与主线程交流 
+    - addEventListener('message')
+    - postMessage() 
+
+# 姚总的面试
+### event loop + promise 是重点
+  - event loop + await
+    做题
