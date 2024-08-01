@@ -44,3 +44,13 @@
 ### event loop + promise 是重点
   - event loop + await
     做题
+
+- 前端大模型 transformers.js
+  - import {} from 'cdn' 从cdn 加载，更快
+  - 远程加载 模型文件 有点大，几百兆
+  - 当未来这种小一点，性能好一些的LLM 在电脑，手机等设备支持JS直接调用
+    端AI能力将会威力无比，前端AI时代将会到来，明年
+  - pipeline 第一个核心模块
+      pipeline(task,model-name)
+      const pipe = await pipeline('translator', 'gpt = ')
+      const result = await pipe(input)
