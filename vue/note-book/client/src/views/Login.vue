@@ -38,11 +38,21 @@
 
 <script setup>
 import { ref } from 'vue'
+import axios from '@/api'
 
 const username = ref('')
 const password = ref('')
+
+// 登录
 const onSubmit = (values) => {
     console.log(values);
+    axios.post('/user/login', { // 异步
+        username: values.username,
+        password: values.password
+    })
+    .then((res) => {
+        console.log(res);
+    })
 }
 </script>
 
@@ -83,5 +93,8 @@ const onSubmit = (values) => {
             }
         }
     }
+}
+:deep(.van-cell__title.van-field__label){
+    width: 45px;
 }
 </style>
